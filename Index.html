@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Flip Animation</title>
+    <link rel="stylesheet" href="hh.css">
+</head>
+<body>
+
+<div class="scene" id="scene">
+
+    <!-- OLD TOMON -->
+    <div class="card-front">
+        <h2>Tizimga kirish</h2>
+
+        <div class="input-group">
+            <label>Gmail (raqamsiz):</label>
+            <input type="email" id="email1" placeholder="user@gmail.com" pattern="[a-zA-Z.]+@gmail\.com">
+        </div>
+
+        <div class="input-group">
+            <label>Parol (faqat son):</label>
+            <input type="number" id="password1" placeholder="12345">
+        </div>
+
+        <div class="footer-actions">
+            <button class="forgot-text" id="forgot-btn">Parol unutildi?</button>
+            <button class="send-btn" id="send-btn">Send</button>
+        </div>
+    </div>
+
+    <!-- ORQA TOMON -->
+    <div class="card-back">
+        <h2>Tizimga kirish</h2>
+
+        <div class="input-group">
+            <label>Gmail (raqamsiz):</label>
+            <input type="email" id="email2" placeholder="user@gmail.com" pattern="[a-zA-Z.]+@gmail\.com">
+        </div>
+
+        <div class="input-group">
+            <label>Parol (faqat son):</label>
+            <input type="number" id="password2" placeholder="12345">
+        </div>
+
+        <div class="footer-actions">
+            <button class="back-btn" id="back-btn">← Orqaga</button>
+            <button class="send-btn2" id="send-btn2">Send</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const scene = document.getElementById('scene');
+
+    const email1 = document.getElementById('email1');
+    const password1 = document.getElementById('password1');
+    const email2 = document.getElementById('email2');
+    const password2 = document.getElementById('password2');
+
+    function flipToBack() {
+        email1.value = '';
+        password1.value = '';
+        email2.value = '';
+        password2.value = '';
+        scene.classList.add('flipped');
+    }0.
+
+    function flipToFront() {
+        email2.value = '';
+        password2.value = '';
+        email1.value = '';
+        password1.value = '';
+        scene.classList.remove('flipped');
+    }
+
+    document.getElementById('forgot-btn').addEventListener('click', flipToBack);
+    document.getElementById('send-btn').addEventListener('click', flipToBack);
+    document.getElementById('back-btn').addEventListener('click', flipToFront);
+    document.getElementById('send-btn2').addEventListener('click', flipToFront);
+</script>
+
+</body>
+</html>
